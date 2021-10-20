@@ -1,9 +1,3 @@
-const firebase = require("firebase");
-// Required for side-effects
-require("firebase/firestore");
-
-
-
 // Your web app's Firebase configuration
 const firebaseConfig = {
     apiKey: "AIzaSyBHB1wqBs1Kc0_jGoV8aRQCrV5427tqb_4",
@@ -16,8 +10,8 @@ const firebaseConfig = {
 };
 
 // Initialize Firebase
-const app = initializeApp(firebaseConfig);
-const db = firebase.Firestore();
+const app = firebase.initializeApp(firebaseConfig);
+const db = firebase.firestore();
 
 
 
