@@ -54,44 +54,46 @@ function affectVideos(listeChaines){
 }
 
 selectBox.addEventListener('change', () => {
-    fetch(`https://www.googleapis.com/youtube/v3/search?key=AIzaSyAebvd-2-p33hyYnFlWGG_CCB0ewB80AQ8&q=${selectBox.value}&part=snippet,id&maxResults=5`)
+    fetch(`https://www.googleapis.com/youtube/v3/search?key=AIzaSyAebvd-2-p33hyYnFlWGG_CCB0ewB80AQ8&q=${selectBox.value}&part=snippet,id&maxResults=6`)
     .then((resp) => {
         return resp.json()
     })
     .then((data) => {
-        const videosListe = data
-        showVideos(videosListe.items);
+        grid(data.items);
     })
     .catch(() => {
         // catch any errors
     });
 });
 
-function showVideos(videosListe){
+function grid(videosListe) {
+    let grid = document.querySelector("#gridVideos");
+
+    grid.innerHTML = "";
+
     videosListe.forEach(video => {
-        console.dir(video.id.videoId)
+        let vid = document.createElement("video");
+        let a = document.createAttribute("data-yt2html5");
+        a.value = 'https://www.youtube.com/watch?v='+video.id.videoId
+        vid.setAttributeNode(a);
+        vid.controls = true;        
+        grid.appendChild(vid);
+        console.log(vid.getAttribute("data-yt2html5"));
+        window.player.load();
     });
 }
 
-function grid() {
-    var container = document.createElement('div');
-    container.id = "main";
-    container.className = "container";
+document.querySelector('#btnPip').addEventListener("click", () => {
+    togglePictureInPicture()
+});
 
-    for (var i = 0; i < 16; i++) {
-
-        var row = document.createElement('div');
-        row.className = "row";
-        row.id = "row" + i;
-
-        for (var j = 0; j < 16; j++) {
-            var box = document.createElement('div');
-            box.className = 'box';
-            row.appendChild(box);
-        }
-
-        container.appendChild(row);
+async function togglePictureInPicture() {
+    if (document.pictureInPictureElement) {
+        document.exitPictureInPicture();
+    } else {
+      if (document.pictureInPictureEnabled) {
+        let video = document.querySelector("video");
+        await video.requestPictureInPicture();
+      }
     }
-
-    return container;
-}
+  }

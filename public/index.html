@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -8,14 +9,27 @@
 
     <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
     <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-firestore.js"></script>
-    
+    <script src="https://cdn.jsdelivr.net/gh/thelevicole/youtube-to-html5-loader@4.0.1/dist/YouTubeToHtml5.js"></script>
     <title>Document</title>
 </head>
 
 <body>
     <script src="assets/js/main.js" defer></script>
+
     <select id="channelSelect"></select>
 
     <section id="gridVideos"></section>
+
+    <section>
+        <button id="btnPip">
+            Picture-In-Picture
+        </button>
+    </section>
+
+    <script>
+    window.player = new YouTubeToHtml5();
+    window.player.load();
+    </script>
 </body>
+
 </html>
