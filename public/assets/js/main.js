@@ -73,12 +73,12 @@ function grid(videosListe) {
 
     videosListe.forEach(video => {
         let vid = document.createElement("video");
+        vid.classList.add("video");
         let a = document.createAttribute("data-yt2html5");
         a.value = 'https://www.youtube.com/watch?v='+video.id.videoId
         vid.setAttributeNode(a);
         vid.controls = true;        
         grid.appendChild(vid);
-        console.log(vid.getAttribute("data-yt2html5"));
         window.player.load();
     });
 }

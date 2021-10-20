@@ -2,16 +2,13 @@ body{
     margin: 0 auto;
 }
 
-.container{
-    border : solid #000;
-    min-height:100%;
-}
-.box{
-    border : solid #000;
-}
-
 #gridVideos{
     display: flex;
     flex-direction: row;
     justify-content: space-evenly;
+    width: 500px;
+}
+
+.video{
+    width: 500px;
 }
