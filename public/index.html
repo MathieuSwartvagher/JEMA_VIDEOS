@@ -6,22 +6,23 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="assets/css/style.css">
+    <!-- BootStrap -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <!-- FireBase Auth css -->
     <link type="text/css" rel="stylesheet" href="https://www.gstatic.com/firebasejs/ui/4.8.1/firebase-ui-auth.css" />
 
-
-
+    <!-- Firebase -->
     <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
     <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-auth.js"></script>
     <script src="https://www.gstatic.com/firebasejs/ui/4.8.1/firebase-ui-auth.js"></script>
     <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-firestore.js"></script>
+    <!-- Récupération chaîne de stream sur le serveur google -->
     <script src="https://cdn.jsdelivr.net/gh/thelevicole/youtube-to-html5-loader@4.0.1/dist/YouTubeToHtml5.js"></script>
+    <!-- BootStrap -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous">
     </script>
-
-
 
     <title>JEMA-VIDEOS</title>
 </head>
@@ -29,14 +30,18 @@
 <body id="body">
     <script src="assets/js/main.js" defer></script>
 
+    <!-- Page d'app  -->
     <section id="pageVideo">
+        <!-- List déroulante contenant les chaînes YouTube -->
         <section>
             <select id="channelSelect" class="form-select form-select-lg mb-3"
                 aria-label=".form-select-lg example"></select>
         </section>
 
+        <!-- Section contenant la liste des vidéos qui seront récupérées -->
         <section id="gridVideos" class="position-absolute top-50 start-50 translate-middle"></section>
 
+        <!-- Bouton pour le picture-in-picture -->
         <section class="position-absolute bottom-0 start-50 translate-middle-x">
             <button id="btnPip" class="btn">
                 Picture-In-Picture
@@ -44,11 +49,13 @@
         </section>
     </section>
 
+    <!-- Page de connexion -->
     <section id="connexion">
-            <div id="firebaseui-auth-container"></div>
-            <div id="loader">Loading...</div> 
+        <div id="firebaseui-auth-container"></div>
+        <div id="loader">Loading...</div>
     </section>
 
+    <!-- script servant à charger la bibliothèque youtube sur une balise vidéo -->
     <script>
         window.player = new YouTubeToHtml5();
         window.player.load();
