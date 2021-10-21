@@ -54,7 +54,7 @@ function affectVideos(listeChaines){
 }
 
 selectBox.addEventListener('change', () => {
-    fetch(`https://www.googleapis.com/youtube/v3/search?key=AIzaSyAebvd-2-p33hyYnFlWGG_CCB0ewB80AQ8&q=${selectBox.value}&part=snippet,id&maxResults=6`)
+    fetch(`https://www.googleapis.com/youtube/v3/search?key=AIzaSyAebvd-2-p33hyYnFlWGG_CCB0ewB80AQ8&q=${selectBox.value}&type=video&part=snippet,id&maxResults=1`)
     .then((resp) => {
         return resp.json()
     })
@@ -73,13 +73,14 @@ function grid(videosListe) {
 
     videosListe.forEach(video => {
         let vid = document.createElement("video");
-        vid.classList.add("video");
+        
         let a = document.createAttribute("data-yt2html5");
         a.value = 'https://www.youtube.com/watch?v='+video.id.videoId
         vid.setAttributeNode(a);
         vid.controls = true;        
         grid.appendChild(vid);
         window.player.load();
+        vid.classList.add("video");
     });
 }
 
