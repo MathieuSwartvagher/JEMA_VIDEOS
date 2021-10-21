@@ -22,7 +22,6 @@ window.addEventListener("load", () => {
     var uiConfig = {
         callbacks: {
           signInSuccessWithAuthResult: function(authResult, redirectUrl) {
-            alert("test")
             pageVideo.classList.remove("hide");
             pageConnexion.classList.add("hide");
             return true;
