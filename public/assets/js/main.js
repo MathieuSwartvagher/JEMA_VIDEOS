@@ -22,9 +22,9 @@ window.addEventListener("load", () => {
     var uiConfig = {
         callbacks: {
           signInSuccessWithAuthResult: function(authResult, redirectUrl) {
-            // User successfully signed in.
-            // Return type determines whether we continue the redirect automatically
-            // or whether we leave that to developer to handle.
+            alert("test")
+            pageVideo.classList.remove("hide");
+            pageConnexion.classList.add("hide");
             return true;
           },
           uiShown: function() {
@@ -35,7 +35,6 @@ window.addEventListener("load", () => {
         },
         // Will use popup for IDP Providers sign-in flow instead of the default, redirect.
         signInFlow: 'popup',
-        signInSuccessUrl: '<url-to-redirect-to-on-success>',
         signInOptions: [
           // Leave the lines as is for the providers you want to offer your users.
           firebase.auth.GoogleAuthProvider.PROVIDER_ID,
@@ -136,46 +135,3 @@ async function togglePictureInPicture() {
       }
     }
   }
-
-function createUser(){
-    let nom = document.querySelector('#nom').value;
-    let mdp = document.querySelector('#mdp').value;
-
-    firebase.auth().createUserWithEmailAndPassword(nom, mdp)
-    .then((userCredential) => {
-        // Signed in 
-        var user = userCredential.user;
-        // ...
-    })
-    .catch((error) => {
-  var errorCode = error.code;
-  var errorMessage = error.message;
-  // ..
-    });
-}
-
-submit.addEventListener("submit", (event) => {
-    event.preventDefault();
-    connect();
-});
-
-function connect(){
-    let nom = document.querySelector('#nom').value;
-    let mdp = document.querySelector('#mdp').value;
-
-    firebase.auth().signInWithEmailAndPassword(nom, mdp)
-    .then((userCredential) => {
-      // Signed in
-      var user = userCredential.user;
-      // ...
-    })
-    .catch((error) => {
-      var errorCode = error.code;
-      var errorMessage = error.message;
-    });
-}
-
-
-
-
-
