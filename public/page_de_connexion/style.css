@@ -18,29 +18,12 @@ form h1{
     color: #eb7371;
     text-align:center;
 }
-form .social-media{
-    margin-top: -10px;
-    display: flex;
-    flex-wrap:wrap;
-    justify-content:center;
-}
-form .social-media #icon{
-    display: flex;
-    flex-direction: row;
-        justify-content: space-evenly;
-margin-bottom: 100px;
-    width: 200px;
-    border-radius: 100%;
-    border: 1px solid #545454;
-    text-align: center;
-    cursor:pointer;
-    color: #545454;
-}
+
 form .inputs {
     display: flex;
     flex-direction: column;
-    margin-top: 50px;
-    margin-bottom: 50px;
+    margin-top: 30px;
+    margin-bottom: 20px;
 }
 form .inputs input[type='Identifiant'], input[type='Mot de passe']{
     padding: 15px;
@@ -67,7 +50,4 @@ form button{
     background-color: #eb7371;
     outline:none;
     cursor:pointer;
-}
-i{
-    width: 20%;
 }
